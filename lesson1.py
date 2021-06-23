@@ -1,21 +1,30 @@
 from pprint import pprint
 from dotenv import load_dotenv
-
+from github import Github
+import json
 import requests
 
 
-def requestGit():
-    url = "https://api.github.com"
-    return requests.get(url)
+def print_repo(repo):
+    return repo.full_name
+
+def requestGit(username):
+    g = Github()
+    user = g.get_user(username)
+    lt = []
+    for repo in user.get_repos():
+        lt.append(print_repo(repo))
+    return lt
 
 
-def saveList(list):
-    pprint(list)
+def saveList(lt):
+    with open('data.json', 'w') as fp:
+        json.dump(lt, fp, indent=2)
 
 
-def pipeline():
-    saveList(requestGit())
+def pipeline(name):
+    saveList(requestGit(name))
 
 
 if __name__ == "__main__":
-    pipeline()
+    pipeline("TestKartashov")
