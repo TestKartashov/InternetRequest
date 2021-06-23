@@ -9,8 +9,10 @@ import requests
 # для конкретного пользователя, сохранить
 # JSON-вывод в файле *.json.
 
+
 def print_repo(repo):
     return repo.full_name
+
 
 def requestGit(username):
     g = Github()
