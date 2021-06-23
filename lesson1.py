@@ -4,6 +4,10 @@ from github import Github
 import json
 import requests
 
+##1. Посмотреть документацию к API GitHub,
+# разобраться как вывести список репозиториев
+# для конкретного пользователя, сохранить
+# JSON-вывод в файле *.json.
 
 def print_repo(repo):
     return repo.full_name
