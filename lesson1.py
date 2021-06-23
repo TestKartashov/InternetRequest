@@ -5,7 +5,7 @@ import requests
 
 
 def requestGit():
-    url = "http://google.com"
+    url = "https://api.github.com"
     return requests.get(url)
 
 
